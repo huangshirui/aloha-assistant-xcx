@@ -1,0 +1,29 @@
+<view class="canvas">
+  <view class="canvas__wash"></view>
+  <view class="canvas__glow canvas__glow--primary"></view>
+  <view class="canvas__glow canvas__glow--secondary"></view>
+
+  <view class="canvas__stage">
+    <view class="canvas__card">
+      <view class="canvas__icon-orb">
+        <image class="canvas__icon" src="/images/icons/sparkles.svg" mode="aspectFit"></image>
+      </view>
+
+      <text class="canvas__title">{{meta.title}}</text>
+      <text class="canvas__subtitle">{{meta.subtitle}}</text>
+      <text class="canvas__hint" wx:if="{{meta.hint}}">{{meta.hint}}</text>
+
+      <view class="canvas__chips" wx:if="{{meta.chips && meta.chips.length}}">
+        <view
+          class="canvas__chip"
+          wx:for="{{meta.chips}}"
+          wx:key="*this"
+          data-prompt="{{item}}"
+          bindtap="onPromptTap"
+        >
+          {{item}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,24 @@
+<view class="home-page">
+  <home-top-bar
+    title="{{title}}"
+    status-text="{{statusText}}"
+    metrics="{{navMetrics}}"
+    bind:menutap="handleMenuTap"
+  />
+
+  <view class="home-shell">
+    <home-canvas
+      meta="{{activeToolMeta}}"
+      state="{{canvasState}}"
+      bind:prompttap="handlePromptTap"
+    />
+  </view>
+
+  <home-toolbar
+    active-tool="{{activeTool}}"
+    show-more="{{isMoreOpen}}"
+    more-actions="{{moreActions}}"
+    bind:toolchange="handleToolChange"
+    bind:moreaction="handleMoreAction"
+  />
+</view>

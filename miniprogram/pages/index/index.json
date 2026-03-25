@@ -1,0 +1,8 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "home-top-bar": "/components/home-top-bar/index",
+    "home-canvas": "/components/home-canvas/index",
+    "home-toolbar": "/components/home-toolbar/index"
+  }
+}

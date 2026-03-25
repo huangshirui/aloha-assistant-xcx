@@ -1,0 +1,25 @@
+<view
+  class="top-bar"
+  style="height: {{(metrics.statusBarHeight || 20) + 48}}px;"
+>
+  <view class="top-bar__safe" style="height: {{metrics.statusBarHeight || 20}}px;"></view>
+  <view class="top-bar__nav" style="height: 48px;">
+    <button
+      class="menu-button"
+      bindtap="onMenuTap"
+      hover-class="menu-button--pressed"
+      style="top: 2px; width: 44px; height: 44px;"
+    >
+      <image class="menu-icon-image" src="/images/icons/menu.svg" mode="aspectFit"></image>
+    </button>
+
+    <view class="brand-block">
+      <text class="brand-block__title">{{statusText || title}}</text>
+    </view>
+
+    <view
+      class="capsule-spacer"
+      style="width: {{metrics.capsuleWidth || 120}}px; height: {{metrics.capsuleHeight || 32}}px; right: {{metrics.capsuleRight || 24}}px; top: {{(48 - (metrics.capsuleHeight || 32)) / 2}}px;"
+    ></view>
+  </view>
+</view>

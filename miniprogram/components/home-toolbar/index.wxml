@@ -1,0 +1,64 @@
+<view class="toolbar-shell">
+  <view class="more-panel" wx:if="{{showMore}}">
+    <view
+      class="more-panel__item"
+      wx:for="{{moreActions}}"
+      wx:key="key"
+      data-key="{{item.key}}"
+      data-label="{{item.label}}"
+      bindtap="onMoreActionTap"
+    >
+      <view class="more-panel__icon-wrap">
+        <image class="more-panel__icon" src="{{item.icon}}" mode="aspectFit"></image>
+      </view>
+      <text class="more-panel__label">{{item.label}}</text>
+    </view>
+  </view>
+
+  <view class="toolbar">
+    <button
+      class="toolbar__item {{activeTool === 'session' ? 'toolbar__item--active' : ''}}"
+      bindtap="onToolTap"
+      data-tool="session"
+      hover-class="toolbar__item--active"
+    >
+      <image class="toolbar__icon" src="/images/icons/square-pen.svg" mode="aspectFit"></image>
+    </button>
+
+    <button
+      class="toolbar__item {{activeTool === 'text' ? 'toolbar__item--active' : ''}}"
+      bindtap="onToolTap"
+      data-tool="text"
+      hover-class="toolbar__item--active"
+    >
+      <image class="toolbar__icon" src="/images/icons/keyboard.svg" mode="aspectFit"></image>
+    </button>
+
+    <button
+      class="toolbar__item {{activeTool === 'voice' ? 'toolbar__item--active' : ''}}"
+      bindtap="onToolTap"
+      data-tool="voice"
+      hover-class="toolbar__item--active"
+    >
+      <image class="toolbar__icon" src="/images/icons/mic.svg" mode="aspectFit"></image>
+    </button>
+
+    <button
+      class="toolbar__item {{activeTool === 'camera' ? 'toolbar__item--active' : ''}}"
+      bindtap="onToolTap"
+      data-tool="camera"
+      hover-class="toolbar__item--active"
+    >
+      <image class="toolbar__icon" src="/images/icons/camera.svg" mode="aspectFit"></image>
+    </button>
+
+    <button
+      class="toolbar__item {{activeTool === 'more' ? 'toolbar__item--active' : ''}}"
+      bindtap="onToolTap"
+      data-tool="more"
+      hover-class="toolbar__item--active"
+    >
+      <image class="toolbar__icon" src="/images/icons/ellipsis.svg" mode="aspectFit"></image>
+    </button>
+  </view>
+</view>
