@@ -1,24 +1,38 @@
 <view class="home-page">
   <home-top-bar
-    title="{{title}}"
-    status-text="{{statusText}}"
     metrics="{{navMetrics}}"
+    status-text="{{topBar.text}}"
+    status-mode="{{topBar.mode}}"
     bind:menutap="handleMenuTap"
   />
 
   <view class="home-shell">
-    <home-canvas
-      meta="{{activeToolMeta}}"
-      state="{{canvasState}}"
-      bind:prompttap="handlePromptTap"
-    />
+    <home-canvas canvas-items="{{canvasItems}}" bind:prompttap="handlePromptTap" />
   </view>
 
-  <home-toolbar
-    active-tool="{{activeTool}}"
-    show-more="{{isMoreOpen}}"
+  <home-overlay-panel
+    panel-state="{{ui.panelState}}"
     more-actions="{{moreActions}}"
-    bind:toolchange="handleToolChange"
     bind:moreaction="handleMoreAction"
+  />
+
+  <home-toolbar
+    toolbar-visual="{{toolbarVisual}}"
+    panel-state="{{ui.panelState}}"
+    composer="{{ui.composer}}"
+    voice="{{ui.voice}}"
+    bind:toolchange="handleToolChange"
+    bind:voiceholdstart="handleVoiceHoldStart"
+    bind:voiceholdend="handleVoiceHoldEnd"
+    bind:composerinput="handleComposerInput"
+    bind:composersubmit="handleComposerSubmit"
+  />
+
+  <home-drawer
+    open="{{ui.panelState.drawerOpen}}"
+    entries="{{drawerEntries}}"
+    user="{{user}}"
+    bind:drawerclose="handleDrawerClose"
+    bind:drawerselect="handleDrawerSelect"
   />
 </view>

@@ -3,27 +3,38 @@
   <view class="canvas__glow canvas__glow--primary"></view>
   <view class="canvas__glow canvas__glow--secondary"></view>
 
-  <view class="canvas__stage">
-    <view class="canvas__card">
-      <view class="canvas__icon-orb">
-        <image class="canvas__icon" src="/images/icons/sparkles.svg" mode="aspectFit"></image>
-      </view>
+  <scroll-view class="canvas__stage" scroll-y="true" enhanced="true" show-scrollbar="false">
+    <view class="canvas__item" wx:for="{{canvasItems}}" wx:key="id">
+      <view class="canvas__card canvas__card--welcome" wx:if="{{item.type === 'welcome'}}">
+        <view class="canvas__icon-orb">
+          <image class="canvas__icon" src="/images/icons/sparkles.svg" mode="aspectFit"></image>
+        </view>
 
-      <text class="canvas__title">{{meta.title}}</text>
-      <text class="canvas__subtitle">{{meta.subtitle}}</text>
-      <text class="canvas__hint" wx:if="{{meta.hint}}">{{meta.hint}}</text>
+        <text class="canvas__title">{{item.payload.title}}</text>
+        <text class="canvas__subtitle">{{item.payload.subtitle}}</text>
 
-      <view class="canvas__chips" wx:if="{{meta.chips && meta.chips.length}}">
-        <view
-          class="canvas__chip"
-          wx:for="{{meta.chips}}"
-          wx:key="*this"
-          data-prompt="{{item}}"
-          bindtap="onPromptTap"
-        >
-          {{item}}
+        <view class="canvas__chips" wx:if="{{item.payload.chips && item.payload.chips.length}}">
+          <view
+            class="canvas__chip"
+            wx:for="{{item.payload.chips}}"
+            wx:key="*this"
+            data-prompt="{{item}}"
+            bindtap="onPromptTap"
+          >
+            {{item}}
+          </view>
         </view>
       </view>
+
+      <view class="canvas__card canvas__card--assistant" wx:elif="{{item.type === 'assistant_text'}}">
+        <text class="canvas__eyebrow">{{item.payload.title}}</text>
+        <text class="canvas__assistant-text">{{item.payload.content}}</text>
+      </view>
+
+      <view class="canvas__card canvas__card--assistant" wx:elif="{{item.type === 'assistant_card'}}">
+        <text class="canvas__card-title">{{item.payload.title}}</text>
+        <text class="canvas__card-subtitle">{{item.payload.subtitle}}</text>
+      </view>
     </view>
-  </view>
+  </scroll-view>
 </view>

@@ -1,7 +1,4 @@
-<view
-  class="top-bar"
-  style="height: {{(metrics.statusBarHeight || 20) + 48}}px;"
->
+<view class="top-bar" style="height: {{(metrics.statusBarHeight || 20) + 48}}px;">
   <view class="top-bar__safe" style="height: {{metrics.statusBarHeight || 20}}px;"></view>
   <view class="top-bar__nav" style="height: 48px;">
     <button
@@ -14,7 +11,12 @@
     </button>
 
     <view class="brand-block">
-      <text class="brand-block__title">{{statusText || title}}</text>
+      <text class="brand-block__title">{{statusText}}</text>
+      <view class="brand-block__dots" wx:if="{{statusMode !== 'idle'}}">
+        <text class="brand-block__dot"></text>
+        <text class="brand-block__dot brand-block__dot--delay"></text>
+        <text class="brand-block__dot brand-block__dot--late"></text>
+      </view>
     </view>
 
     <view

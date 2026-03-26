@@ -1,0 +1,4 @@
+interface:
+  display_name: "WeChat Mini Program Testing"
+  short_description: "Build and debug stable automator E2E tests for the ALOHA mini program."
+  default_prompt: "Use $wechat-miniprogram-automator-testing-aloha to add or debug end-to-end tests for the ALOHA WeChat Mini Program homepage."

@@ -1,0 +1,46 @@
+.overlay-shell {
+  position: fixed;
+  left: 42rpx;
+  right: 42rpx;
+  bottom: 246rpx;
+  z-index: 13;
+}
+
+.overlay-panel {
+  width: 100%;
+  border-radius: 36rpx;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow:
+    0 28rpx 60rpx rgba(26, 28, 46, 0.12),
+    inset 0 0 0 2rpx rgba(255, 255, 255, 0.52);
+  backdrop-filter: blur(24rpx);
+}
+
+.overlay-panel__action {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  padding: 18rpx;
+  margin: 12rpx;
+  border-radius: 24rpx;
+}
+
+.overlay-panel__icon-wrap {
+  width: 58rpx;
+  height: 58rpx;
+  border-radius: 18rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f2f5f6;
+}
+
+.overlay-panel__icon {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.overlay-panel__label {
+  font-size: 24rpx;
+  color: #1a1c2e;
+}

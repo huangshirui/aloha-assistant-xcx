@@ -1,12 +1,8 @@
 Component({
   properties: {
-    meta: {
-      type: Object,
-      value: {},
-    },
-    state: {
-      type: Object,
-      value: {},
+    canvasItems: {
+      type: Array,
+      value: [],
     },
   },
 

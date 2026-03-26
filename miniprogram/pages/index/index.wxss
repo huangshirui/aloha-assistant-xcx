@@ -1,7 +1,6 @@
 page {
   height: 100%;
-  background:
-    linear-gradient(180deg, #fcfbf8 0%, #f3f5f6 56%, #e5eaee 100%);
+  background: linear-gradient(180deg, #fcfbf8 0%, #f3f5f6 56%, #e5eaee 100%);
 }
 
 .home-page {
@@ -20,8 +19,7 @@ page {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(circle at 50% 72%, rgba(69, 123, 157, 0.09) 0%, rgba(69, 123, 157, 0) 28%);
+  background: radial-gradient(circle at 50% 72%, rgba(69, 123, 157, 0.09) 0%, rgba(69, 123, 157, 0) 28%);
   pointer-events: none;
 }
 

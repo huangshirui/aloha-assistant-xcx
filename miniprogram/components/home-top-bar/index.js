@@ -1,12 +1,12 @@
 Component({
   properties: {
-    title: {
+    statusText: {
       type: String,
       value: "ALOHA",
     },
-    statusText: {
+    statusMode: {
       type: String,
-      value: "",
+      value: "idle",
     },
     metrics: {
       type: Object,

@@ -1,0 +1,85 @@
+.drawer-shell {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+}
+
+.drawer-mask {
+  position: absolute;
+  inset: 0;
+  background: rgba(248, 249, 250, 0.24);
+  backdrop-filter: blur(8rpx);
+}
+
+.drawer-panel {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 476rpx;
+  padding: 120rpx 28rpx 44rpx;
+  box-sizing: border-box;
+  background: rgba(252, 251, 248, 0.96);
+  box-shadow: 16rpx 0 60rpx rgba(26, 28, 46, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer-panel__header {
+  margin-bottom: 28rpx;
+}
+
+.drawer-panel__title {
+  font-size: 22rpx;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(26, 28, 46, 0.34);
+}
+
+.drawer-panel__entry {
+  padding: 24rpx 12rpx;
+  border-radius: 24rpx;
+}
+
+.drawer-panel__entry-label {
+  font-size: 32rpx;
+  color: #1a1c2e;
+}
+
+.drawer-panel__footer {
+  margin-top: auto;
+  padding: 22rpx 16rpx;
+  border-radius: 28rpx;
+  background: rgba(241, 244, 245, 0.86);
+  display: flex;
+  align-items: center;
+  gap: 18rpx;
+}
+
+.drawer-panel__avatar {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1a1c2e;
+  color: #f8f9fa;
+  font-size: 28rpx;
+}
+
+.drawer-panel__user {
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.drawer-panel__name {
+  font-size: 26rpx;
+  color: #1a1c2e;
+}
+
+.drawer-panel__meta {
+  font-size: 20rpx;
+  color: rgba(26, 28, 46, 0.44);
+}

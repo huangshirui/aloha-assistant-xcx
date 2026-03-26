@@ -3,6 +3,8 @@
   "usingComponents": {
     "home-top-bar": "/components/home-top-bar/index",
     "home-canvas": "/components/home-canvas/index",
-    "home-toolbar": "/components/home-toolbar/index"
+    "home-toolbar": "/components/home-toolbar/index",
+    "home-overlay-panel": "/components/home-overlay-panel/index",
+    "home-drawer": "/components/home-drawer/index"
   }
 }

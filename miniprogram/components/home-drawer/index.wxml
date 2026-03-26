@@ -1,0 +1,20 @@
+<view class="drawer-shell" wx:if="{{open}}">
+  <view class="drawer-mask" bindtap="onMaskTap"></view>
+  <view class="drawer-panel">
+    <view class="drawer-panel__header">
+      <text class="drawer-panel__title">Workspace</text>
+    </view>
+
+    <view class="drawer-panel__entry" wx:for="{{entries}}" wx:key="key" data-key="{{item.key}}" data-label="{{item.label}}" bindtap="onEntryTap">
+      <text class="drawer-panel__entry-label">{{item.label}}</text>
+    </view>
+
+    <view class="drawer-panel__footer">
+      <view class="drawer-panel__avatar">{{user.avatarText}}</view>
+      <view class="drawer-panel__user">
+        <text class="drawer-panel__name">{{user.name}}</text>
+        <text class="drawer-panel__meta">Profile & settings</text>
+      </view>
+    </view>
+  </view>
+</view>

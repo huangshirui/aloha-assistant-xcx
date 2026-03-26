@@ -1,64 +1,65 @@
 <view class="toolbar-shell">
-  <view class="more-panel" wx:if="{{showMore}}">
-    <view
-      class="more-panel__item"
-      wx:for="{{moreActions}}"
-      wx:key="key"
-      data-key="{{item.key}}"
-      data-label="{{item.label}}"
-      bindtap="onMoreActionTap"
-    >
-      <view class="more-panel__icon-wrap">
-        <image class="more-panel__icon" src="{{item.icon}}" mode="aspectFit"></image>
+  <view class="toolbar-surface {{panelState.composerOpen ? 'toolbar-surface--expanded' : ''}}">
+    <view class="toolbar-composer" wx:if="{{panelState.composerOpen}}">
+      <view class="toolbar-composer__field">
+        <textarea
+          class="toolbar-composer__textarea"
+          value="{{composer.text}}"
+          placeholder="{{composer.placeholder}}"
+          auto-height="true"
+          maxlength="-1"
+          cursor-spacing="24"
+          bindinput="onComposerInput"
+        />
       </view>
-      <text class="more-panel__label">{{item.label}}</text>
+
+      <view class="toolbar-composer__actions">
+        <view class="toolbar-composer__leading">
+          <button class="toolbar-composer__icon-button toolbar-composer__icon-button--soft">
+            <image class="toolbar-composer__icon" src="/images/icons/file.svg" mode="aspectFit"></image>
+          </button>
+          <button class="toolbar-composer__icon-button toolbar-composer__icon-button--soft">
+            <image class="toolbar-composer__icon" src="/images/icons/image.svg" mode="aspectFit"></image>
+          </button>
+        </view>
+
+        <button class="toolbar-composer__send" bindtap="onComposerSubmit">
+          <image class="toolbar-composer__send-icon" src="/images/icons/send-horizontal.svg" mode="aspectFit"></image>
+        </button>
+      </view>
     </view>
-  </view>
 
-  <view class="toolbar">
-    <button
-      class="toolbar__item {{activeTool === 'session' ? 'toolbar__item--active' : ''}}"
-      bindtap="onToolTap"
-      data-tool="session"
-      hover-class="toolbar__item--active"
-    >
-      <image class="toolbar__icon" src="/images/icons/square-pen.svg" mode="aspectFit"></image>
-    </button>
+    <view class="toolbar-divider" wx:if="{{panelState.composerOpen}}">
+      <view class="toolbar-divider__line"></view>
+    </view>
 
-    <button
-      class="toolbar__item {{activeTool === 'text' ? 'toolbar__item--active' : ''}}"
-      bindtap="onToolTap"
-      data-tool="text"
-      hover-class="toolbar__item--active"
-    >
-      <image class="toolbar__icon" src="/images/icons/keyboard.svg" mode="aspectFit"></image>
-    </button>
+    <view class="toolbar">
+      <button class="toolbar__item" bindtap="onToolTap" data-tool="session" hover-class="toolbar__item--active">
+        <image class="toolbar__icon" src="/images/icons/square-pen.svg" mode="aspectFit"></image>
+      </button>
 
-    <button
-      class="toolbar__item {{activeTool === 'voice' ? 'toolbar__item--active' : ''}}"
-      bindtap="onToolTap"
-      data-tool="voice"
-      hover-class="toolbar__item--active"
-    >
-      <image class="toolbar__icon" src="/images/icons/mic.svg" mode="aspectFit"></image>
-    </button>
+      <button class="toolbar__item {{toolbarVisual.textActive ? 'toolbar__item--active' : ''}}" bindtap="onToolTap" data-tool="text" hover-class="toolbar__item--active">
+        <image class="toolbar__icon {{toolbarVisual.textActive ? 'toolbar__icon--active' : ''}}" src="{{toolbarVisual.textActive ? '/images/icons/keyboard-active.svg' : '/images/icons/keyboard.svg'}}" mode="aspectFit"></image>
+      </button>
 
-    <button
-      class="toolbar__item {{activeTool === 'camera' ? 'toolbar__item--active' : ''}}"
-      bindtap="onToolTap"
-      data-tool="camera"
-      hover-class="toolbar__item--active"
-    >
-      <image class="toolbar__icon" src="/images/icons/camera.svg" mode="aspectFit"></image>
-    </button>
+      <button
+        class="toolbar__item {{toolbarVisual.voiceActive ? 'toolbar__item--active toolbar__item--strong' : ''}}"
+        bindtap="onToolTap"
+        bindlongpress="onVoiceHoldStart"
+        bindtouchend="onVoiceHoldEnd"
+        data-tool="voice"
+        hover-class="toolbar__item--active"
+      >
+        <image class="toolbar__icon {{toolbarVisual.voiceActive ? 'toolbar__icon--active' : ''}}" src="{{toolbarVisual.voiceActive ? '/images/icons/mic-active.svg' : '/images/icons/mic.svg'}}" mode="aspectFit"></image>
+      </button>
 
-    <button
-      class="toolbar__item {{activeTool === 'more' ? 'toolbar__item--active' : ''}}"
-      bindtap="onToolTap"
-      data-tool="more"
-      hover-class="toolbar__item--active"
-    >
-      <image class="toolbar__icon" src="/images/icons/ellipsis.svg" mode="aspectFit"></image>
-    </button>
+      <button class="toolbar__item" bindtap="onToolTap" data-tool="camera" hover-class="toolbar__item--active">
+        <image class="toolbar__icon" src="/images/icons/camera.svg" mode="aspectFit"></image>
+      </button>
+
+      <button class="toolbar__item {{toolbarVisual.moreActive ? 'toolbar__item--active' : ''}}" bindtap="onToolTap" data-tool="more" hover-class="toolbar__item--active">
+        <image class="toolbar__icon {{toolbarVisual.moreActive ? 'toolbar__icon--active' : ''}}" src="{{toolbarVisual.moreActive ? '/images/icons/ellipsis-active.svg' : '/images/icons/ellipsis.svg'}}" mode="aspectFit"></image>
+      </button>
+    </view>
   </view>
 </view>

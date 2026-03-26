@@ -1,0 +1,10 @@
+<view class="overlay-shell" wx:if="{{panelState.moreOpen}}">
+  <view class="overlay-panel" wx:if="{{panelState.moreOpen}}">
+    <view class="overlay-panel__action" wx:for="{{moreActions}}" wx:key="key" data-key="{{item.key}}" data-label="{{item.label}}" bindtap="onMoreActionTap">
+      <view class="overlay-panel__icon-wrap">
+        <image class="overlay-panel__icon" src="{{item.icon}}" mode="aspectFit"></image>
+      </view>
+      <text class="overlay-panel__label">{{item.label}}</text>
+    </view>
+  </view>
+</view>
