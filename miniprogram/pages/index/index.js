@@ -19,7 +19,7 @@ function createWelcomeItem() {
     status: "ready",
     payload: {
       title: "Ready to assist",
-      subtitle: "Tap below to begin your creative session.",
+      subtitle: Array(100).fill("This is a long line of text to test scrolling behavior.").join("\n"),
       chips: ["Draft a brief", "Analyze data"],
     },
     actions: [],
