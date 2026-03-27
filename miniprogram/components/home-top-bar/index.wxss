@@ -32,6 +32,7 @@
 .menu-icon-image {
   width: 22px;
   height: 22px;
+  filter: var(--icon-filter);
 }
 
 .brand-block {
@@ -49,32 +50,47 @@
 }
 
 .brand-block__title {
-  font-size: 21px;
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 1.375rem;
   line-height: 1.1;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -0.04em;
-  color: #1a1c2e;
+  color: var(--on-surface);
 }
 
 .brand-block__dots {
   display: flex;
   align-items: center;
-  gap: 6rpx;
+  gap: 8rpx;
 }
 
 .brand-block__dot {
   width: 8rpx;
   height: 8rpx;
   border-radius: 50%;
-  background: rgba(26, 28, 46, 0.28);
+  background: var(--primary);
+  opacity: 0.3;
+  animation: pulse 1.5s infinite ease-in-out;
 }
 
 .brand-block__dot--delay {
-  opacity: 0.7;
+  animation-delay: 0.3s;
 }
 
 .brand-block__dot--late {
-  opacity: 0.45;
+  animation-delay: 0.6s;
+}
+
+@keyframes pulse {
+  0%, 100% { 
+    opacity: 0.3; 
+    transform: scale(1); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.2); 
+    box-shadow: 0 0 6px var(--primary); 
+  }
 }
 
 .capsule-spacer {

@@ -1,6 +1,6 @@
 page {
   height: 100%;
-  background: linear-gradient(180deg, #fcfbf8 0%, #f3f5f6 56%, #e5eaee 100%);
+  background: var(--surface);
 }
 
 .home-page {
@@ -8,10 +8,8 @@ page {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background:
-    radial-gradient(circle at top, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0) 30%),
-    linear-gradient(180deg, #fcfbf8 0%, #f4f6f6 58%, #dce3e7 100%);
-  color: #1a1c2e;
+  background: var(--surface);
+  color: var(--on-surface);
   overflow: hidden;
 }
 
@@ -19,7 +17,7 @@ page {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 72%, rgba(69, 123, 157, 0.09) 0%, rgba(69, 123, 157, 0) 28%);
+  background: radial-gradient(circle at 50% 72%, rgba(143, 245, 255, 0.05) 0%, rgba(143, 245, 255, 0) 40%);
   pointer-events: none;
 }
 

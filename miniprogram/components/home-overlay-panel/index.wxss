@@ -9,10 +9,8 @@
 .overlay-panel {
   width: 100%;
   border-radius: 36rpx;
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow:
-    0 28rpx 60rpx rgba(26, 28, 46, 0.12),
-    inset 0 0 0 2rpx rgba(255, 255, 255, 0.52);
+  background: var(--surface-variant);
+  box-shadow: 0 28rpx 60rpx rgba(0, 0, 0, 0.4), inset 0 0 0 1rpx var(--outline-variant);
   backdrop-filter: blur(24rpx);
 }
 
@@ -32,15 +30,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f2f5f6;
+  background: var(--surface-bright);
 }
 
 .overlay-panel__icon {
   width: 30rpx;
   height: 30rpx;
+  filter: var(--icon-filter);
 }
 
 .overlay-panel__label {
+  font-family: 'Inter', sans-serif;
   font-size: 24rpx;
-  color: #1a1c2e;
+  color: var(--on-surface);
 }
